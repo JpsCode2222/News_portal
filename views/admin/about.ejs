@@ -1,0 +1,201 @@
+<%-include('nav.ejs')%>
+<form action="/admin/update_mission" method="post">
+    <div class="container bg-white shadow">
+        <div class="row">
+            <div class="col-md-12 text-center text-white p-1" style="background-image: linear-gradient(	25deg,#4d475c 15%,rgb(21, 4, 27) 71%,rgb(174, 157, 185) 71%,rgb(95, 61, 92) 74%,rgb(239, 164, 246) 74%,white 95%);">
+                <h3>Update Our Mission</h3>
+            </div>
+            <div class="col-md-4">
+                <input type="hidden" name="id" value="<%=missions[0].id%>">
+                Title 
+                <input type="text" class="form-control" name="title" value="<%=missions[0].title%>">
+            </div>
+            <div class="col-md-4">
+                Details1 
+                <input type="text" class="form-control" name="details1" value="<%=missions[0].details1%>">
+            </div>
+            <div class="col-md-4">
+                Details2 
+                <input type="text" class="form-control" name="details2" value="<%=missions[0].details2%>">
+            </div>
+            <div class="col-md-12 mt-3 text-center">
+                <button class="btn btn-primary">Save Mission</button>
+
+            </div>
+            <br><br><br>
+
+        </div>
+
+    </div>
+
+</form>
+<br>
+<!-- -------------------------OUR VISION------------------------------------- -->
+<form action="/admin/update_vision" method="post">
+    <div class="container bg-white shadow">
+        <div class="row">
+           <div class="col-md-12 text-center text-white p-1" style="background-image: linear-gradient(	25deg,#4d475c 15%,rgb(21, 4, 27) 71%,rgb(174, 157, 185) 71%,rgb(95, 61, 92) 74%,rgb(239, 164, 246) 74%,white 95%);">
+                <h3>Update Our Vision</h3>
+            </div>
+            <div class="col-md-4">
+                <input type="hidden" name="id" value="<%=visions[0].id%>">
+                Title 
+                <input type="text" name="title" class="form-control" value="<%=visions[0].title%>">
+            </div>
+            <div class="col-md-4">
+                Detail 
+                <input type="text" name="detail" class="form-control" value="<%=visions[0].detail%>">
+            </div>
+            <div class="col-md-4">
+                Detail 2 
+                <input type="text" name="detail2" class="form-control" value="<%=visions[0].detail2%>">
+            </div>
+            <div class="col-md-12 mt-3 text-center">
+                <button class="btn btn-primary">Save Our Vision</button>
+            </div>
+            <br><br><br>
+        </div>
+
+    </div>
+
+</form>
+<br>
+<!-- -----------------------------------SECTION 3-------------------------------- -->
+<form action="/admin/update_services" method="post" enctype="multipart/form-data">
+    <div class="container bg-white shadow">
+        <div class="row">
+            <div class="col-md-12 text-center text-white p-1" style="background-image: linear-gradient(	25deg,#4d475c 15%,rgb(21, 4, 27) 71%,rgb(174, 157, 185) 71%,rgb(95, 61, 92) 74%,rgb(239, 164, 246) 74%,white 95%);">
+                <h3>Update Best Services</h3>
+            </div>
+            <div class="col-md-2">
+                <input type="hidden" name="id" value="<%=services[0].id%>">
+                Upload Image 
+                <input type="file" name="image" class="form-control">
+            </div>
+            <div class="col-md-2">
+                <img src="/uploads/{{<%=services[0].image%>}}" width="100px">
+            </div>
+            <div class="col-md-4">
+                Title 
+                <input type="text" name="title" class="form-control" value="<%=services[0].title%>">
+             </div>
+             <div class="col-md-4">
+                Name 
+                <input type="text" name="name" class="form-control" value="<%=services[0].name%>"> 
+            </div>
+            <div class="col-md-4">
+                Details1 
+                <input type="text" name="details1" class="form-control" value="<%=services[0].details1%>">
+            </div>
+            <div class="col-md-4">
+                Details2 
+                <input type="text" name="details2" class="form-control" value="<%=services[0].details2%>">
+            </div>
+            <div class="col-md-4">
+                Button Link 
+                <input type="text" name="button_link" class="form-control" value="<%=services[0].button_link%>">
+            </div>
+            <div class="col-md-12 mt-3 text-center">
+                <button class="btn btn-primary">Save Services</button>
+            </div>
+            <br><br><br>
+
+        </div>
+
+    </div>
+
+</form>
+<!-- ---------------------------------SECTION :- 4 -------------------------------------------------------- -->
+<br>
+<form action="/admin/save_team_member" method="post" enctype="multipart/form-data">
+    <div class="container bg-white shadow">
+        <div class="row">
+            <div class="col-md-12 text-center text-white p-1" style="background-image: linear-gradient(	25deg,#4d475c 15%,rgb(21, 4, 27) 71%,rgb(174, 157, 185) 71%,rgb(95, 61, 92) 74%,rgb(239, 164, 246) 74%,white 95%);">
+                <h3>Update Team Member</h3>
+            </div>
+            
+            <div class="col-md-4">
+                Upload Image 
+                <input type="file" name="member_image" class="form-control"> 
+            </div>
+            <div class="col-md-4">
+                Name 
+                <input type="text" name="member_name" class="form-control">
+            </div>
+
+            <div class="col-md-4">
+                Position 
+                <input type="text" name="member_position" class="form-control">
+             </div>
+             <div class="col-md-12 mt-3 text-center">
+                <button class="btn btn-primary">Save Team_Member</button>
+             </div>
+             <br><br><br>
+        </div>
+
+    </div>
+
+</form>
+<br>
+<!-- -----------List of team member------------- -->
+<div class="container bg-white shadow">
+    <div class="row">
+        <div class="col-md-12 text-center text-white p-1" style="background-image: linear-gradient(	25deg,#4d475c 15%,rgb(21, 4, 27) 71%,rgb(174, 157, 185) 71%,rgb(95, 61, 92) 74%,rgb(239, 164, 246) 74%,white 95%);">
+            <h6>List Team Member</h6>
+        </div>
+        <div class="col-md-12 table-responsive">
+            <table class="table table-hover" width="100%">
+                <tr>
+                    <th style="width: 150px;">ACTION</th>
+                    <th>SN</th>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Position</th>
+                </tr>
+                <% for (i=0;i<teammembers.length;i++) { %>
+                    <tr>
+                        <th>
+                            <a href="/admin/edit_team_member/<%=teammembers[i].id%>">
+                                <button class="btn btn-primary btn-sm">Edit</button>
+                            </a>
+                            <a href="/admin/delete_team_member/<%=teammembers[i].id%>">
+                                <button class="btn btn-danger btn-sm">Delete</button>
+                            </a>
+                        </th>
+                        <td><%=i+1%></td>
+                        <th>
+                            <img src="/<%=teammembers[i].member_image%>" width="100px">
+                      </th>
+                        <th><%=teammembers[i].member_name%></th>
+                        <th><%=teammembers[i].member_position%></th>
+                    </tr>
+                <% } %>
+            </table>
+
+        </div>
+    </div>
+
+</div> 
+<!-- ----------------SECTION : 5 ---------------------------------------------->
+<br>
+<form action="/admin/update_ad_image" method="post" enctype="multipart/form-data">
+    <div class="container bg-white shadow">
+        <div class="row">
+            <div class="col-md-12 text-center text-white p-1" style="background-image: linear-gradient(	25deg,#4d475c 15%,rgb(21, 4, 27) 71%,rgb(174, 157, 185) 71%,rgb(95, 61, 92) 74%,rgb(239, 164, 246) 74%,white 95%);">
+                <h6>Update advertise image</h6>
+            </div>
+            <div class="col-md-12">
+                Uploads Image
+                <input type="file" name="ad_image" class="form-control">
+            </div>
+            <div class="col-md-12 mt-3 text-center">
+                <button class="btn btn-primary">Save</button>
+            </div>
+            <br><br><br>
+
+        </div>
+
+    </div>
+
+</form>
+<%-include('footer.ejs')%>

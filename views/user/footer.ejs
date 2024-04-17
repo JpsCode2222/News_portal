@@ -1,0 +1,135 @@
+</main>
+<footer>
+    <!-- Footer Start-->
+    <div class="footer-main footer-bg">
+        <div class="footer-area footer-padding">
+            <div class="container">
+                <div class="row d-flex justify-content-between">
+                    <div class="col-xl-3 col-lg-3 col-md-5 col-sm-8">
+                        <div class="single-footer-caption mb-50">
+                            <div class="single-footer-caption mb-30">
+                                <!-- logo -->
+                                <div class="footer-logo">
+                                    <a href="index.html"><img src="/assets/img/logo/logo2_footer.png" alt=""></a>
+                                </div>
+                                <div class="footer-tittle">
+                                    <div class="footer-pera">
+                                        <p class="info1">Lorem ipsum dolor sit amet, nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                                        <p class="info2">198 West 21th Street, Suite 721 New York,NY 10010</p>
+                                        <p class="info2">Phone: +95 (0) 123 456 789 Cell: +95 (0) 123 456 789</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-5 col-sm-7">
+                        <div class="single-footer-caption mb-50">
+                            <div class="footer-tittle">
+                                <h4>Popular post</h4>
+                            </div>
+                            <!-- Popular post -->
+                            <% var cnt=1;%>
+                          <% for(var i=0;i<t_news.length;i++){%>
+                            <div class="whats-right-single mb-20">
+                                <div class="whats-right-img">
+                                <% var str=t_news[i].img_video; const length=str.length;
+                                                        if(str.slice(length - 3)==='mp4' ){%>
+                                                        <a href="/latesr_news/<%=t_news[i].id%>">
+                                                            <video controls src="/uploads/<%=t_news[i].img_video%>"
+                                                                style="height:100px" class="w-100"></video>
+                                                            <% }else if(str.slice(length - 3)==='mp3' ){ %>
+                                                                <audio controls src="/uploads/<%=t_news[i].img_video%>"
+                                                                    style="height:100px" class="w-100"></audio>
+                                                                <%}else{%>
+                                                                    <img src="/uploads/<%=t_news[i].img_video%>"
+                                                                        style="height:100px" class="w-100" alt="">
+                                                        </a>
+                                                        <%}%>
+                                </div>
+                                <div class="whats-right-cap">
+                                    <h4><a href="latest_news.html"><%=t_news[i].heading%></a></h4>
+                                    <p><%=t_news[i].reporter%>  |  <%=t_news[i].date%></p> 
+                                </div>
+                            </div>
+
+                          <%if(cnt===3)break; cnt++;}%>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-5 col-sm-7">
+                        <div class="single-footer-caption mb-50">
+                            <div class="banner">
+                                <img src="/assets/img/gallery/body_card4.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- footer-bottom aera -->
+        <div class="footer-bottom-area footer-bg">
+            <div class="container">
+                <div class="footer-border">
+                    <div class="row d-flex align-items-center">
+                        <div class="col-xl-12 ">
+                            <div class="footer-copy-right text-center">
+                                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">A2Z IT HUB INTERN TEAM NO.1</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End-->
+</footer>
+<!-- Search model Begin -->
+<div class="search-model-box">
+    <div class="d-flex align-items-center h-100 justify-content-center">
+        <div class="search-close-btn">+</div>
+        <form class="search-model-form">
+            <input type="text" id="search-input" placeholder="Searching key.....">
+        </form>
+    </div>
+</div>
+<!-- Search model end -->
+
+<!-- JS here -->
+
+    <script src="/assets/js/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="/assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/assets/js/popper.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="/assets/js/jquery.slicknav.min.js"></script>
+
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="/assets/js/owl.carousel.min.js"></script>
+    <script src="/assets/js/slick.min.js"></script>
+    <!-- Date Picker -->
+    <script src="/assets/js/gijgo.min.js"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="/assets/js/wow.min.js"></script>
+    <script src="/assets/js/animated.headline.js"></script>
+    <script src="/assets/js/jquery.magnific-popup.js"></script>
+
+    <!-- Scrollup, nice-select, sticky -->
+    <script src="/assets/js/jquery.scrollUp.min.js"></script>
+    <script src="/assets/js/jquery.nice-select.min.js"></script>
+    <script src="/assets/js/jquery.sticky.js"></script>
+    
+    <!-- contact js -->
+    <script src="/assets/js/contact.js"></script>
+    <script src="/assets/js/jquery.form.js"></script>
+    <script src="/assets/js/jquery.validate.min.js"></script>
+    <script src="/assets/js/mail-script.js"></script>
+    <script src="/assets/js/jquery.ajaxchimp.min.js"></script>
+    
+    <!-- Jquery Plugins, main Jquery -->	
+    <script src="/assets/js/plugins.js"></script>
+    <script src="/assets/js/main.js"></script>
+    
+</body>
+</html>

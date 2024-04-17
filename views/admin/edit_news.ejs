@@ -1,0 +1,71 @@
+<%-include('nav.ejs')%>
+    <form action="/admin/update_news" method="post" enctype="multipart/form-data">
+        <div class="container ">
+            <div class="row pb-5">
+                <div class="col-md-12 p-1 mb-2 text-white"
+                    style="vertical-align: center;background-image: linear-gradient(	25deg,#6844C8 15%,rgb(167, 42, 217) 71%,rgb(125, 4, 212) 71%,rgb(248, 112, 234) 74%,rgb(239, 164, 246) 74%,white 95%);">
+                    <h4 style="margin-left: 5px;">Update New Post</h4>
+                </div>
+                <div class="col-md-4 mt-1 mb-1">
+                    <label class="mt-1 mb-1">Choose Image / Video</label>
+                    <input type="file" name="img_video" class="form-control mb-2">
+                    <% var str=news.img_video; const length=str.length; if(str.slice(length - 3)==='mp4' ){%>
+                        <video controls src="/uploads/<%=news.img_video%>" style="height: 150px;"
+                            class="w-100"></video>
+                        <% }else if(str.slice(length - 3)==='mp3' ){ %>
+                            <audio controls src="/uploads/<%=news.img_video%>" style="height: 150px;"
+                                class="w-100"></audio>
+                            <%}else{%>
+                                <img src="/uploads/<%=news.img_video%>" style="height: 150px;" class="w-100" alt="">
+                                <%}%>
+                </div>
+                <div class="col-md-4 mt-1 mb-1">
+                    <label class="mt-1 mb-1">Enter Heading</label>
+                    <input type="text" name="heading" value="<%=news.heading%>" class="form-control">
+                    <input type="hidden" name="id" value="<%=news.id%>">
+                </div>
+                <div class="col-md-4 mt-1 mb-1">
+                    <label class="mt-1 mb-1">Enter Details</label>
+                    <textarea name="details" class="form-control"><%=news.details%></textarea>
+                </div>
+                <div class="col-md-4 mt-1 mb-1">
+                    <label class="mt-1 mb-1">Select Category</label>
+                    <select class="form-control" name="category">
+                        <option disabled>Select</option>
+                        <option <%=(news.category=='Trending' )?'selected':''%> value="Trending">Trending</option>
+                        <option <%=(news.category=='Finance' )?'selected':''%> value="Finance">Finance</option>
+                        <option <%=(news.category=='Agreeculter' )?'selected':''%> value="Agreeculter">Agreeculter</option>
+                        <option <%=(news.category=='Technology' )?'selected':''%> value="Technology">Technology</option>
+                        <option <%=(news.category=='Sports' )?'selected':''%> value="Sports">Sports</option>
+                        <option <%=(news.category=='Entertainment' )?'selected':''%> value="Entertainment">Entertainment</option>
+                        <option <%=(news.category=='Lifestyle' )?'selected':''%> value="Lifestyle">Lifestyle</option>
+                    </select>
+                </div>
+                <div class="col-md-4 mt-1 mb-1">
+                    <label class="mt-1 mb-1">Reporter Name</label>
+                    <input type="text" name="reporter" value="<%=news.reporter%>" class="form-control">
+                </div>
+                <div class="col-md-4 mt-1 mb-1">
+                    <label class="mt-1 mb-1">Social Link</label>
+                    <input type="url" name="social_link" value="<%=news.social_link%>" class="form-control">
+                </div>
+                <div class="col-md-4 mt-1 mb-1">
+                    <label class="mt-1 mb-1">Status</label>
+                    <input type="text" name="status" placeholder="Approved" value="<%=news.status%>" class="form-control">
+                </div>
+                <div class="col-md-4 mt-1 mb-1">
+                    <label class="mt-1 mb-1">Time</label>
+                    <input type="text" name="time" placeholder="01:42:3 AM" value="<%=news.time%>" class="form-control">
+                </div>
+                <div class="col-md-4 mt-1 mb-1">
+                    <label class="mt-1 mb-1">Date</label>
+                    <input type="text" name="date" placeholder="27 March 2024" value="<%=news.date%>" class="form-control">
+                </div>
+                <div class="col-md-12 mt-3 text-center">
+                    <input type="hidden" name="status" value="Approved">
+                    <button class="btn " style="background-color: #6844C8;color: white;">Update News</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <%-include('footer.ejs')%>

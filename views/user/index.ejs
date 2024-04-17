@@ -1,0 +1,986 @@
+<%-include('nav')%>
+    <!-- Trending Area Start -->
+    <div class="trending-area fix pt-25 gray-bg">
+        <div class="container">
+            <div class="trending-main">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <!-- Trending Top -->
+                        <div class="slider-active">
+                            <% for(var i=0;i<5;i++){%>
+                                <!-- Single -->
+                                <div class="single-slider">
+                                    <div class="trending-top mb-30">
+                                        <div class="trend-top-img">
+                                            <% var str=t_news[i].img_video; const length=str.length; if(str.slice(length
+                                                - 3)==='mp4' ){%>
+                                                <video controls src="/uploads/<%=t_news[i].img_video%>"
+                                                    class="w-100"></video>
+                                                <% }else if(str.slice(length - 3)==='mp3' ){ %>
+                                                    <audio controls src="/uploads/<%=t_news[i].img_video%>"
+                                                        class="w-100"></audio>
+                                                    <%}else{%>
+                                                        <img src="/uploads/<%=t_news[i].img_video%>" class="w-100"
+                                                            alt="">
+                                                        <%}%>
+                                                            <div class="trend-top-cap">
+                                                                <span class="bgr" data-animation="fadeInUp"
+                                                                    data-delay=".2s" data-duration="1000ms">
+                                                                    <%=t_news[i].category%>
+                                                                </span>
+                                                                <h2><a href="/latest_news/<%=t_news[i].id%>"
+                                                                        data-animation="fadeInUp" data-delay=".4s"
+                                                                        data-duration="1000ms">
+                                                                        <%=t_news[i].heading%>
+                                                                    </a></h2>
+                                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <%}%>
+                        </div>
+                    </div>
+                    <!-- Right content -->
+                    <div class="col-lg-4">
+                        <!-- Trending Top -->
+                        <div class="row">
+                            <% for(var i=0;i<1;i++){%>
+                                <div class="col-lg-12 col-md-6 col-sm-6">
+                                    <div class="trending-top mb-30">
+                                        <div class="trend-top-img">
+                                            <% var str=f_news[i].img_video; const length=str.length; if(str.slice(length
+                                                - 3)==='mp4' ){%>
+                                                <a href="/latest_news/<%=f_news[i].id%>">
+                                                    <video controls src="/uploads/<%=f_news[i].img_video%>"
+                                                        class="w-100"></video>
+                                                    <% }else if(str.slice(length - 3)==='mp3' ){ %>
+                                                        <audio controls src="/uploads/<%=f_news[i].img_video%>"
+                                                            class="w-100"></audio>
+                                                        <%}else{%>
+                                                            <img src="/uploads/<%=f_news[i].img_video%>" class="w-100"
+                                                                alt="">
+                                                </a>
+                                                <%}%>
+                                                    <div class="trend-top-cap trend-top-cap2">
+                                                        <% if(str.slice(length - 3)!='mp4' ){%>
+                                                            <span class="bgg">
+                                                                <%= f_news[i].category%>
+                                                            </span>
+                                                            <%}%>
+                                                                <h2><a href="/latest_news/f_news[i].id">
+                                                                        <%=(str.slice(length - 3)!='mp4'
+                                                                            )?f_news[i].heading:''%>
+                                                                    </a></h2>
+                                                                <p>
+                                                                    <%=(str.slice(length - 3)!='mp4'
+                                                                        )?f_news[i].reporter:'' %>
+                                                                </p>
+                                                    </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <%}%>
+
+                                    <% for(var i=0;i<1;i++){%>
+                                        <div class="col-lg-12 col-md-6 col-sm-6">
+                                            <div class="trending-top mb-30">
+                                                <div class="trend-top-img">
+                                                    <% var str=tech_news[i].img_video; const length=str.length;
+                                                        if(str.slice(length - 3)==='mp4' ){%>
+                                                        <a href="/latest_news/<%=tech_news[i].id%>">
+                                                            <video controls src="/uploads/<%=tech_news[i].img_video%>"
+                                                                class="w-100"></video>
+                                                            <% }else if(str.slice(length - 3)==='mp3' ){ %>
+                                                                <audio controls
+                                                                    src="/uploads/<%=tech_news[i].img_video%>"
+                                                                    class="w-100"></audio>
+                                                                <%}else{%>
+                                                                    <img src="/uploads/<%=tech_news[i].img_video%>"
+                                                                        class="w-100" alt="">
+                                                        </a>
+                                                        <%}%>
+                                                            <div class="trend-top-cap trend-top-cap2">
+                                                                <% if(str.slice(length - 3)!='mp4' ){%>
+                                                                    <span class="bgg">
+                                                                        <%= tech_news[i].category%>
+                                                                    </span>
+                                                                    <%}%>
+                                                                        <h2><a href="/latest_news/tech_news[i].id">
+                                                                                <%=(str.slice(length - 3)!='mp4'
+                                                                                    )?tech_news[i].heading:''%>
+                                                                            </a></h2>
+                                                                        <p>
+                                                                            <%=(str.slice(length - 3)!='mp4'
+                                                                                )?tech_news[i].reporter -
+                                                                                tech_news[i].date:'' %>
+                                                                        </p>
+                                                            </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                        </div>
+                        <%}%>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- Trending Area End -->
+    <!-- Whats New Start -->
+    <section class="whats-news-area pt-50 pb-20 gray-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="whats-news-wrapper">
+                        <!-- Heading & Nav Button -->
+                        <div class="row justify-content-between align-items-end mb-15">
+                            <div class="col-xl-4">
+                                <div class="section-tittle mb-30">
+                                    <h3>Whats New</h3>
+                                </div>
+                            </div>
+                            <div class="col-xl-8 col-md-9">
+                                <div class="properties__button">
+                                    <!--Nav Button  -->
+                                    <nav>
+                                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab"
+                                                href="#nav-home" role="tab" aria-controls="nav-home"
+                                                aria-selected="true">Trending</a>
+                                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab"
+                                                href="#nav-profile" role="tab" aria-controls="nav-profile"
+                                                aria-selected="false">Technology</a>
+                                            <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab"
+                                                href="#nav-contact" role="tab" aria-controls="nav-contact"
+                                                aria-selected="false">Finance</a>
+                                            <a class="nav-item nav-link" id="nav-last-tab" data-toggle="tab"
+                                                href="#nav-last" role="tab" aria-controls="nav-contact"
+                                                aria-selected="false">Sports</a>
+                                            <a class="nav-item nav-link" id="nav-Sports" data-toggle="tab"
+                                                href="#nav-nav-Sport" role="tab" aria-controls="nav-contact"
+                                                aria-selected="false">Travel</a>
+                                        </div>
+                                    </nav>
+                                    <!--End Nav Button  -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Tab content -->
+                        <div class="row">
+                            <div class="col-12">
+                                <!-- Nav Card -->
+                                <div class="tab-content" id="nav-tabContent">
+                                    <!-- card one -->
+                                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                                        aria-labelledby="nav-home-tab">
+                                        <div class="row">
+                                            <!-- Left Details Caption -->
+                                            <% for(var i=0;i<1;i++){%>
+                                                <div class="col-xl-6 col-lg-12">
+                                                    <div class="whats-news-single mb-40 mb-40">
+                                                        <div class="whates-img">
+                                                            <% var str=t_news[i].img_video; const length=str.length;
+                                                                if(str.slice(length - 3)==='mp4' ){%>
+                                                                <a href="/latest_news/<%=t_news[i].id%>">
+                                                                    <video controls
+                                                                        src="/uploads/<%=t_news[i].img_video%>"
+                                                                        class="w-100"></video>
+                                                                    <% }else if(str.slice(length - 3)==='mp3' ){ %>
+                                                                        <audio controls
+                                                                            src="/uploads/<%=t_news[i].img_video%>"
+                                                                            class="w-100"></audio>
+                                                                        <%}else{%>
+                                                                            <img src="/uploads/<%=t_news[i].img_video%>"
+                                                                                class="w-100" alt="">
+                                                                </a>
+                                                                <%}%>
+                                                        </div>
+                                                        <div class="whates-caption">
+                                                            <h4><a href="latest_news.html">
+                                                                    <%=t_news[i].heading%>
+                                                                </a></h4>
+                                                            <span>
+                                                                <%=t_news[i].reporter%> - <span style="float: right;">
+                                                                        <%=t_news[i].date%>
+                                                                    </span>
+                                                            </span>
+                                                            <p>
+                                                                <%const para=t_news[i].details.substring(0,200);%>
+                                                                    <%=para%> ...
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <%}%>
+                                                    <!-- Right single caption -->
+                                                    <div class="col-xl-6 col-lg-12">
+                                                        <div class="row">
+                                                            <!-- single -->
+                                                            <% for(var i=1;i<5;i++){%>
+                                                                <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10">
+                                                                    <div class="whats-right-single mb-20">
+                                                                        <div class="whats-right-img">
+                                                                            <% var str=t_news[i].img_video; const
+                                                                                length=str.length; if(str.slice(length -
+                                                                                3)==='mp4' ){%>
+                                                                                <a
+                                                                                    href="/latest_news/<%=t_news[i].id%>">
+                                                                                    <video controls
+                                                                                        src="/uploads/<%=t_news[i].img_video%>"
+                                                                                        style="width:150px; height:100px"></video>
+                                                                                    <% }else if(str.slice(length -
+                                                                                        3)==='mp3' ){ %>
+                                                                                        <audio controls
+                                                                                            src="/uploads/<%=t_news[i].img_video%>"
+                                                                                            style="width:150px; height:100px"></audio>
+                                                                                        <%}else{%>
+                                                                                            <img src="/uploads/<%=t_news[i].img_video%>"
+                                                                                                style="width:150px; height:100px"
+                                                                                                alt="">
+                                                                                </a>
+                                                                                <%}%>
+                                                                        </div>
+                                                                        <div class="whats-right-cap">
+                                                                            <span class="colorb">
+                                                                                <%=t_news[i].category%>
+                                                                            </span>
+                                                                            <h4><a href="latest_news.html">
+                                                                                    <%=t_news[i].heading%>.
+                                                                                </a></h4>
+                                                                            <p>
+                                                                                <%=t_news[i].date%>
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <%}%>
+
+                                                        </div>
+                                                    </div>
+                                        </div>
+                                    </div>
+                                    <!-- Card two -->
+                                    <div class="tab-pane fade show " id="nav-profile" role="tabpanel"
+                                        aria-labelledby="nav-home-tab">
+                                        <div class="row">
+                                            <!-- Left Details Caption -->
+                                            <% for(var i=0;i<1;i++){%>
+                                                <div class="col-xl-6 col-lg-12">
+                                                    <div class="whats-news-single mb-40 mb-40">
+                                                        <div class="whates-img">
+                                                            <% var str=tech_news[i].img_video; const length=str.length;
+                                                                if(str.slice(length - 3)==='mp4' ){%>
+                                                                <a href="/latestech_news/<%=tech_news[i].id%>">
+                                                                    <video controls
+                                                                        src="/uploads/<%=tech_news[i].img_video%>"
+                                                                        class="w-100"></video>
+                                                                    <% }else if(str.slice(length - 3)==='mp3' ){ %>
+                                                                        <audio controls
+                                                                            src="/uploads/<%=tech_news[i].img_video%>"
+                                                                            class="w-100"></audio>
+                                                                        <%}else{%>
+                                                                            <img src="/uploads/<%=tech_news[i].img_video%>"
+                                                                                class="w-100" alt="">
+                                                                </a>
+                                                                <%}%>
+                                                        </div>
+                                                        <div class="whates-caption">
+                                                            <h4><a href="latestech_news.html">
+                                                                    <%=tech_news[i].heading%>
+                                                                </a></h4>
+                                                            <span>
+                                                                <%=tech_news[i].reporter%> - <span
+                                                                        style="float: right;">
+                                                                        <%=tech_news[i].date%>
+                                                                    </span>
+                                                            </span>
+                                                            <p>
+                                                                <%const para=tech_news[i].details.substring(0,200);%>
+                                                                    <%=para%> ...
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <%}%>
+                                                    <!-- Right single caption -->
+                                                    <div class="col-xl-6 col-lg-12">
+                                                        <div class="row">
+                                                            <!-- single -->
+                                                            <% for(var i=1;i<5;i++){%>
+                                                                <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10">
+                                                                    <div class="whats-right-single mb-20">
+                                                                        <div class="whats-right-img">
+                                                                            <% var str=tech_news[i].img_video; const
+                                                                                length=str.length; if(str.slice(length -
+                                                                                3)==='mp4' ){console.log(tech_news[i].img_video)%>
+                                                                                <a
+                                                                                    href="/latestech_news/<%=tech_news[i].id%>">
+                                                                                    <video controls
+                                                                                        src="/uploads/<%=tech_news[i].img_video%>"
+                                                                                        style="width:150px; height:100px"></video>
+                                                                                    <% }else if(str.slice(length -
+                                                                                        3)==='mp3' ){ %>
+                                                                                        <audio controls
+                                                                                            src="/uploads/<%=tech_news[i].img_video%>"
+                                                                                            style="width:150px; height:100px"></audio>
+                                                                                        <%}else{%>
+                                                                                            <img src="/uploads/<%=tech_news[i].img_video%>"
+                                                                                                style="width:150px; height:100px"
+                                                                                                alt="">
+                                                                                </a>
+                                                                                <%}%>
+                                                                        </div>
+                                                                        <div class="whats-right-cap">
+                                                                            <span class="colorb">
+                                                                                <%=tech_news[i].category%>
+                                                                            </span>
+                                                                            <h4><a href="latestech_news.html">
+                                                                                    <%=tech_news[i].heading%>.
+                                                                                </a></h4>
+                                                                            <p>
+                                                                                <%=tech_news[i].date%>
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <%}%>
+
+                                                        </div>
+                                                    </div>
+                                        </div>
+                                    </div>
+                                    <!-- Card three -->
+                                    <div class="tab-pane fade show " id="nav-contact" role="tabpanel"
+                                        aria-labelledby="nav-home-tab">
+                                        <div class="row">
+                                            <!-- Left Details Caption -->
+                                            <% for(var i=0;i<1;i++){%>
+                                                <div class="col-xl-6 col-lg-12">
+                                                    <div class="whats-news-single mb-40 mb-40">
+                                                        <div class="whates-img">
+                                                            <% var str=f_news[i].img_video; const length=str.length;
+                                                                if(str.slice(length - 3)==='mp4' ){%>
+                                                                <a href="/latesf_news/<%=f_news[i].id%>">
+                                                                    <video controls
+                                                                        src="/uploads/<%=f_news[i].img_video%>"
+                                                                        class="w-100"></video>
+                                                                    <% }else if(str.slice(length - 3)==='mp3' ){ %>
+                                                                        <audio controls
+                                                                            src="/uploads/<%=f_news[i].img_video%>"
+                                                                            class="w-100"></audio>
+                                                                        <%}else{%>
+                                                                            <img src="/uploads/<%=f_news[i].img_video%>"
+                                                                                class="w-100" alt="">
+                                                                </a>
+                                                                <%}%>
+                                                        </div>
+                                                        <div class="whates-caption">
+                                                            <h4><a href="/latest_news/<%=f_news[i].id%>">
+                                                                    <%=f_news[i].heading%>
+                                                                </a></h4>
+                                                            <span>
+                                                                <%=f_news[i].reporter%> - <span style="float: right;">
+                                                                        <%=f_news[i].date%>
+                                                                    </span>
+                                                            </span>
+                                                            <p>
+                                                                <%const para=f_news[i].details.substring(0,200);%>
+                                                                    <%=para%> ...
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <%}%>
+                                                    <!-- Right single caption -->
+                                                    <div class="col-xl-6 col-lg-12">
+                                                        <div class="row">
+                                                            <!-- single -->
+                                                            <% for(var i=1;i<5;i++){%>
+                                                                <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10">
+                                                                    <div class="whats-right-single mb-20">
+                                                                        <div class="whats-right-img">
+                                                                            <% var str=f_news[i].img_video; const
+                                                                                length=str.length; if(str.slice(length -
+                                                                                3)==='mp4' ){%>
+                                                                                <a
+                                                                                    href="/latest_news/<%=f_news[i].id%>">
+                                                                                    <video controls
+                                                                                        src="/uploads/<%=f_news[i].img_video%>"
+                                                                                        style="width:150px; height:100px"></video>
+                                                                                    <% }else if(str.slice(length -
+                                                                                        3)==='mp3' ){ %>
+                                                                                        <audio controls
+                                                                                            src="/uploads/<%=f_news[i].img_video%>"
+                                                                                            style="width:150px; height:100px"></audio>
+                                                                                        <%}else{%>
+                                                                                            <img src="/uploads/<%=f_news[i].img_video%>"
+                                                                                                style="width:150px; height:100px"
+                                                                                                alt="">
+                                                                                </a>
+                                                                                <%}%>
+                                                                        </div>
+                                                                        <div class="whats-right-cap">
+                                                                            <span class="colorb">
+                                                                                <%=f_news[i].category%>
+                                                                            </span>
+                                                                            <h4><a href="latesf_news.html">
+                                                                                    <%=f_news[i].heading%>.
+                                                                                </a></h4>
+                                                                            <p>
+                                                                                <%=f_news[i].date%>
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <%}%>
+
+                                                        </div>
+                                                    </div>
+                                        </div>
+                                    </div>
+                                    <!-- card fure -->
+                                    <div class="tab-pane fade show " id="nav-last" role="tabpanel"
+                                        aria-labelledby="nav-home-tab">
+                                        <div class="row">
+                                            <!-- Left Details Caption -->
+                                            <% for(var i=0;i<1;i++){%>
+                                                <div class="col-xl-6 col-lg-12">
+                                                    <div class="whats-news-single mb-40 mb-40">
+                                                        <div class="whates-img">
+                                                            <% var str=s_news[i].img_video; const length=str.length;
+                                                                if(str.slice(length - 3)==='mp4' ){%>
+                                                                <a href="/latess_news/<%=s_news[i].id%>">
+                                                                    <video controls
+                                                                        src="/uploads/<%=s_news[i].img_video%>"
+                                                                        class="w-100"></video>
+                                                                    <% }else if(str.slice(length - 3)==='mp3' ){ %>
+                                                                        <audio controls
+                                                                            src="/uploads/<%=s_news[i].img_video%>"
+                                                                            class="w-100"></audio>
+                                                                        <%}else{%>
+                                                                            <img src="/uploads/<%=s_news[i].img_video%>"
+                                                                                class="w-100" alt="">
+                                                                </a>
+                                                                <%}%>
+                                                        </div>
+                                                        <div class="whates-caption">
+                                                            <h4><a href="/latest_news/<%=s_news[i].id%>">
+                                                                    <%=s_news[i].heading%>
+                                                                </a></h4>
+                                                            <span>
+                                                                <%=s_news[i].reporter%> - <span style="float: right;">
+                                                                        <%=s_news[i].date%>
+                                                                    </span>
+                                                            </span>
+                                                            <p>
+                                                                <%const para=s_news[i].details.substring(0,200);%>
+                                                                    <%=para%> ...
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <%}%>
+                                                    <!-- Right single caption -->
+                                                    <div class="col-xl-6 col-lg-12">
+                                                        <div class="row">
+                                                            <!-- single -->
+                                                            <% for(var i=1;i<5;i++){%>
+                                                                <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10">
+                                                                    <div class="whats-right-single mb-20">
+                                                                        <div class="whats-right-img">
+                                                                            <% var str=s_news[i].img_video; const
+                                                                                length=str.length; if(str.slice(length -
+                                                                                3)==='mp4' ){%>
+                                                                                <a
+                                                                                    href="/latest_news/<%=s_news[i].id%>">
+                                                                                    <video controls
+                                                                                        src="/uploads/<%=s_news[i].img_video%>"
+                                                                                        style="width:150px; height:100px"></video>
+                                                                                    <% }else if(str.slice(length -
+                                                                                        3)==='mp3' ){ %>
+                                                                                        <audio controls
+                                                                                            src="/uploads/<%=s_news[i].img_video%>"
+                                                                                            style="width:150px; height:100px"></audio>
+                                                                                        <%}else{%>
+                                                                                            <img src="/uploads/<%=s_news[i].img_video%>"
+                                                                                                style="width:150px; height:100px"
+                                                                                                alt="">
+                                                                                </a>
+                                                                                <%}%>
+                                                                        </div>
+                                                                        <div class="whats-right-cap">
+                                                                            <span class="colorb">
+                                                                                <%=s_news[i].category%>
+                                                                            </span>
+                                                                            <h4><a href="latess_news.html">
+                                                                                    <%=s_news[i].heading%>.
+                                                                                </a></h4>
+                                                                            <p>
+                                                                                <%=s_news[i].date%>
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <%}%>
+                                                        </div>
+                                                    </div>
+                                        </div>
+                                    </div>
+                                    <!-- card Five -->
+                                    <div class="tab-pane fade show " id="nav-nav-Sport" role="tabpanel"
+                                        aria-labelledby="nav-home-tab">
+                                        <div class="row">
+                                            <!-- Left Details Caption -->
+                                            <% for(var i=0;i<1;i++){%>
+                                                <div class="col-xl-6 col-lg-12">
+                                                    <div class="whats-news-single mb-40 mb-40">
+                                                        <div class="whates-img">
+                                                            <% var str=tour_news[i].img_video; const length=str.length;
+                                                                if(str.slice(length - 3)==='mp4' ){%>
+                                                                <a href="/latestour_news/<%=tour_news[i].id%>">
+                                                                    <video controls
+                                                                        src="/uploads/<%=tour_news[i].img_video%>"
+                                                                        class="w-100"></video>
+                                                                    <% }else if(str.slice(length - 3)==='mp3' ){ %>
+                                                                        <audio controls
+                                                                            src="/uploads/<%=tour_news[i].img_video%>"
+                                                                            class="w-100"></audio>
+                                                                        <%}else{%>
+                                                                            <img src="/uploads/<%=tour_news[i].img_video%>"
+                                                                                class="w-100" alt="">
+                                                                </a>
+                                                                <%}%>
+                                                        </div>
+                                                        <div class="whates-caption">
+                                                            <h4><a href="/latest_news/<%=tour_news[i].id%>">
+                                                                    <%=tour_news[i].heading%>
+                                                                </a></h4>
+                                                            <span>
+                                                                <%=tour_news[i].reporter%> - <span
+                                                                        style="float: right;">
+                                                                        <%=tour_news[i].date%>
+                                                                    </span>
+                                                            </span>
+                                                            <p>
+                                                                <%const para=tour_news[i].details.substring(0,200);%>
+                                                                    <%=para%> ...
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <%}%>
+                                                    <!-- Right single caption -->
+                                                    <div class="col-xl-6 col-lg-12">
+                                                        <div class="row">
+                                                            <!-- single -->
+                                                            <% for(var i=1;i<5;i++){%>
+                                                                <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10">
+                                                                    <div class="whats-right-single mb-20">
+                                                                        <div class="whats-right-img">
+                                                                            <% var str=tour_news[i].img_video; const
+                                                                                length=str.length; if(str.slice(length -
+                                                                                3)==='mp4' ){%>
+                                                                                <a
+                                                                                    href="/latest_news/<%=tour_news[i].id%>">
+                                                                                    <video controls
+                                                                                        src="/uploads/<%=tour_news[i].img_video%>"
+                                                                                        style="width:150px; height:100px"></video>
+                                                                                    <% }else if(str.slice(length -
+                                                                                        3)==='mp3' ){ %>
+                                                                                        <audio controls
+                                                                                            src="/uploads/<%=tour_news[i].img_video%>"
+                                                                                            style="width:150px; height:100px"></audio>
+                                                                                        <%}else{%>
+                                                                                            <img src="/uploads/<%=tour_news[i].img_video%>"
+                                                                                                style="width:150px; height:100px"
+                                                                                                alt="">
+                                                                                </a>
+                                                                                <%}%>
+                                                                        </div>
+                                                                        <div class="whats-right-cap">
+                                                                            <span class="colorb">
+                                                                                <%=tour_news[i].category%>
+                                                                            </span>
+                                                                            <h4><a href="latestour_news.html">
+                                                                                    <%=tour_news[i].heading%>.
+                                                                                </a></h4>
+                                                                            <p>
+                                                                                <%=tour_news[i].date%>
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <%}%>
+
+                                                        </div>
+                                                    </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Nav Card -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Banner -->
+                    <div class="banner-one mt-20 mb-30">
+                        <img src="/assets/img/gallery/body_card1.png" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <!-- Flow Socail -->
+                    <div class="single-follow mb-45">
+                        <div class="single-box">
+                            <div class="follow-us d-flex align-items-center">
+                                <div class="follow-social">
+                                    <a href="#"><img src="/assets/img/news/icon-fb.png" alt=""></a>
+                                </div>
+                                <div class="follow-count">
+                                    <span>8,045</span>
+                                    <p>Fans</p>
+                                </div>
+                            </div>
+                            <div class="follow-us d-flex align-items-center">
+                                <div class="follow-social">
+                                    <a href="#"><img src="/assets/img/news/icon-tw.png" alt=""></a>
+                                </div>
+                                <div class="follow-count">
+                                    <span>8,045</span>
+                                    <p>Fans</p>
+                                </div>
+                            </div>
+                            <div class="follow-us d-flex align-items-center">
+                                <div class="follow-social">
+                                    <a href="#"><img src="/assets/img/news/icon-ins.png" alt=""></a>
+                                </div>
+                                <div class="follow-count">
+                                    <span>8,045</span>
+                                    <p>Fans</p>
+                                </div>
+                            </div>
+                            <div class="follow-us d-flex align-items-center">
+                                <div class="follow-social">
+                                    <a href="#"><img src="/assets/img/news/icon-yo.png" alt=""></a>
+                                </div>
+                                <div class="follow-count">
+                                    <span>8,045</span>
+                                    <p>Fans</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Most Recent Area -->
+                    <div class="most-recent-area">
+                        <!-- Section Tittle -->
+                        <div class="small-tittle mb-20">
+                            <h4>Most Recent</h4>
+                        </div>
+                        <!-- Details -->
+                        <div class="most-recent mb-40">
+                            <div class="most-recent-img">
+                                <% var str=r_news[0].img_video; const length=str.length; if(str.slice(length -
+                                    3)==='mp4' ){%>
+                                    <a href="/latesr_news/<%=r_news[0].id%>">
+                                        <video controls src="/uploads/<%=r_news[0].img_video%>" class="w-100"></video>
+                                        <% }else if(str.slice(length - 3)==='mp3' ){ %>
+                                            <audio controls src="/uploads/<%=r_news[0].img_video%>"
+                                                class="w-100"></audio>
+                                            <%}else{%>
+                                                <img src="/uploads/<%=r_news[0].img_video%>" class="w-100" alt="">
+                                    </a>
+                                    <%}%>
+                                        <div class="most-recent-cap">
+                                            <span class="bgbeg">
+                                                <%=r_news[0].category%>
+                                            </span>
+                                            <h4><a href="/latest_news/<%=r_news[0].id%>">
+                                                    <%=r_news[0].heading%>
+                                                </a></h4>
+                                            <p>
+                                                <%=r_news[0].reporter%>
+                                                    <%=r_news[0].date%>
+                                            </p>
+                                        </div>
+                            </div>
+                        </div>
+                        <!-- Single -->
+                        <div class="most-recent-single">
+                            <div class="most-recent-images">
+                                <% var str=r_news[1].img_video; const len0234=str.length; if(str.slice(len0234 -
+                                    3)==='mp4' ){%>
+                                    <a href="/latesr_news/<%=r_news[1].id%>">
+                                        <video controls src="/uploads/<%=r_news[1].img_video%>"
+                                            style="width: 100px;"></video>
+                                        <% }else if(str.slice(length - 3)==='mp3' ){ %>
+                                            <audio controls src="/uploads/<%=r_news[1].img_video%>"
+                                                style="width: 100px;"></audio>
+                                            <%}else{%>
+                                                <img src="/uploads/<%=r_news[1].img_video%>" style="width: 100px;"
+                                                    alt="">
+                                    </a>
+                                    <%}%>
+                            </div>
+                            <div class="most-recent-capt">
+                                <h4><a href="/latest_news/<%=r_news[1].id%>">
+                                        <%=r_news[1].heading%>
+                                    </a></h4>
+                                <p>
+                                    <%=r_news[1].reporter%>
+                                        <%=r_news[1].date%>
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Single -->
+                        <div class="most-recent-single">
+                            <div class="most-recent-images">
+                                <% var str=r_news[2].img_video; const len023=str.length; if(str.slice(len023 -
+                                    3)==='mp4' ){%>
+                                    <a href="/latesr_news/<%=r_news[2].id%>">
+                                        <video controls src="/uploads/<%=r_news[2].img_video%>"
+                                            style="width: 100px;"></video>
+                                        <% }else if(str.slice(length - 3)==='mp3' ){ %>
+                                            <audio controls src="/uploads/<%=r_news[2].img_video%>"
+                                                style="width: 100px;"></audio>
+                                            <%}else{%>
+                                                <img src="/uploads/<%=r_news[2].img_video%>" style="width: 100px;"
+                                                    alt="">
+                                    </a>
+                                    <%}%>
+                            </div>
+                            <div class="most-recent-capt">
+                                <h4><a href="/latest_news/<%=r_news[2].id%>">
+                                        <%=r_news[2].heading%>
+                                    </a></h4>
+                                <p>
+                                    <%=r_news[2].reporter%>
+                                        <%=r_news[2].date%>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Whats New End -->
+    <!--   Weekly2-News start -->
+    <div class="weekly2-news-area pt-50 pb-30 gray-bg">
+        <div class="container">
+            <div class="weekly2-wrapper">
+                <div class="row">
+                    <!-- Banner -->
+                    <div class="col-lg-3">
+                        <div class="home-banner2 d-none d-lg-block">
+                            <img src="/assets/img/gallery/body_card2.png" alt="">
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="slider-wrapper">
+                            <!-- section Tittle -->
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="small-tittle mb-30">
+                                        <h4>Most Popular</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Slider -->
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="weekly2-news-active d-flex">
+                                        <!-- Single -->
+                                        <% for(var i=0;i<5;i++){%>
+                                            <div class="weekly2-single">
+                                                <div class="weekly2-img">
+                                                    <% var str=r_news[i].img_video; const length=str.length;
+                                                        if(str.slice(length - 3)==='mp4' ){%>
+                                                        <a href="/latesr_news/<%=r_news[i].id%>">
+                                                            <video controls src="/uploads/<%=r_news[i].img_video%>"
+                                                                class="w-100"></video>
+                                                            <% }else if(str.slice(length - 3)==='mp3' ){ %>
+                                                                <audio controls src="/uploads/<%=r_news[i].img_video%>"
+                                                                    class="w-100"></audio>
+                                                                <%}else{%>
+                                                                    <img src="/uploads/<%=r_news[i].img_video%>"
+                                                                        class="w-100" alt="">
+                                                        </a>
+                                                        <%}%>
+                                                </div>
+                                                <div class="weekly2-caption">
+                                                    <h4><a href="/latest_news/<%=r_news[i].id%>">
+                                                            <%=r_news[i].heading%>
+                                                        </a></h4>
+                                                    <p>
+                                                        <%=r_news[i].reporter%>
+                                                            <%=r_news[i].date%>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <%}%>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Weekly-News -->
+    <!--  Recent Articles start -->
+    <div class="recent-articles pt-80 pb-80">
+        <div class="container">
+            <div class="recent-wrapper">
+                <!-- section Tittle -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-tittle mb-30">
+                            <h3>Trending News</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="recent-active dot-style d-flex dot-style">
+                            <!-- Single -->
+                            <% for(var i=0;i<4;i++){%>
+                                <div class="single-recent">
+                                    <div class="what-img">
+                                        <% var str=t_news[i].img_video; const length=str.length; if(str.slice(length -
+                                            3)==='mp4' ){%>
+                                            <a href="/latest_news/i%=t_news[i].id%>">
+                                                <video controls src="/uploads/<%=t_news[i].img_video%>"
+                                                    class="w-100"></video>
+                                                <% }else if(str.slice(length - 3)==='mp3' ){ %>
+                                                    <audio controls src="/uploads/<%=t_news[i].img_video%>"
+                                                        class="w-100"></audio>
+                                                    <%}else{%>
+                                                        <img src="/uploads/<%=t_news[i].img_video%>" class="w-100"
+                                                            alt="">
+                                            </a>
+                                            <%}%>
+                                    </div>
+                                    <div class="what-cap">
+                                        <h4><a href="#">
+                                                <h4><a href="/latest_news/<%=t_news[i].id%>">
+                                                        <%=t_news[i].heading%>
+                                                    </a></h4>
+                                            </a></h4>
+                                        <P>
+                                            <%=t_news[i].date%>
+                                        </P>
+                                        <a class="popup-video btn-icon" href="/latest_news/<%=t_news[i].id%>"><span
+                                                class="flaticon-play-button"></span></a>
+
+                                    </div>
+                                </div>
+                                <%}%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Recent Articles End -->
+    <!-- Start Video Area -->
+    <div class="youtube-area video-padding d-none d-sm-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="video-items-active">
+
+                        <% for(var i=0;i<r_news.length;i++){%>
+                            <% var str=r_news[i].img_video; const length=str.length; if(str.slice(length - 3)==='mp4'
+                                ){%>
+                                <div class="video-items text-center">
+                                    <video controls>
+                                        <source src="/uploads/<%=r_news[i].img_video%>" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                                <%}%>
+                                    <%}%>
+                    </div>
+                </div>
+            </div>
+            <div class="video-info">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="testmonial-nav text-center">
+                            <% for(var i=0;i<r_news.length;i++){%>
+                                <% var str=r_news[i].img_video; const length=str.length; if(str.slice(length -
+                                    3)==='mp4' ){%>
+                                    <div class="single-video">
+                                        <video controls style="height: 150px;">
+                                            <source src="/uploads/<%=r_news[i].img_video%>" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                        <div class="video-intro">
+                                            <h4>
+                                                <%=r_news[i].date%>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                    <%}%>
+                                        <%}%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Start Video area-->
+    <!--   Weekly3-News start -->
+    <div class="weekly3-news-area pt-80 pb-130">
+        <div class="container">
+            <div class="weekly3-wrapper">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="slider-wrapper">
+                            <!-- Slider -->
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="weekly3-news-active dot-style d-flex">
+                                        <% for(var i=0;i<6;i++){%>
+                                            <div class="weekly3-single">
+                                                <div class="weekly3-img">
+                                                    <% var str=r_news[i].img_video; const length=str.length;
+                                                        if(str.slice(length - 3)!='mp4' ){%>
+                                                        <a href="/latest_news/<%=r_news[i].id%>">
+                                                            <img src="/uploads/<%=r_news[i].img_video%>" class="w-100"
+                                                                style="height: 150px;" alt="">
+                                                        </a>
+                                                        <%}%>
+                                                </div>
+                                                <div class="weekly3-caption">
+                                                    <h4><a href="latest_news.html" style="text-align: justify;">
+                                                            <%=r_news[i].heading%>
+                                                        </a></h4>
+                                                </div>
+                                            </div>
+                                            <% } %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Weekly-News -->
+    <!-- banner-last Start -->
+    <div class="banner-area gray-bg pt-90 pb-90">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 col-md-10">
+                    <div class="banner-one">
+                        <img src="/assets/img/gallery/body_card3.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner-last End -->
+    <%-include('footer')%></div>

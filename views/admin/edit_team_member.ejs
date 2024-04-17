@@ -1,0 +1,36 @@
+<%-include('nav.ejs')%>
+<form action="/admin/update_team_member" method="post" enctype="multipart/form-data">
+    <div class="container bg-white shadow">
+        <div class="row">
+            <div class="col-md-12 text-center text-white p-1" style="background-image: linear-gradient(	25deg,#6844C8 15%,rgb(167, 42, 217) 71%,rgb(125, 4, 212) 71%,rgb(248, 112, 234) 74%,rgb(239, 164, 246) 74%,white 95%);">
+                <h3>Update Team Member</h3>
+            </div>
+            </div>
+            
+            <div class="col-md-2">
+                <input type="hidden" name="id" value="<%=team_info[0].id%>">
+                Upload Image 
+                <input type="file" name="member_image" class="form-control"> 
+            </div>
+            <div class="col-md-2">
+                <img src="/<%=team_info[0].member_image%>" width="100px">
+            </div>
+            <div class="col-md-4">
+                Name 
+                <input type="text" name="member_name" class="form-control" value="<%=team_info[0].member_name%>">
+            </div>
+
+            <div class="col-md-4">
+                Position 
+                <input type="text" name="member_position" class="form-control" value="<%=team_info[0].member_position%>">
+             </div>
+             <div class="col-md-12 mt-3 text-center">
+                <button class="btn btn-primary">Save Team_Member</button>
+             </div>
+             <br><br><br>
+        </div>
+
+    </div>
+
+</form>
+<%-include('footer.ejs')%>

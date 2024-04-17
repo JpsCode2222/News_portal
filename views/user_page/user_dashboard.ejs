@@ -1,0 +1,48 @@
+<%-include('nav.ejs')%>
+    <form action="/admin/save_news" method="post" enctype="multipart/form-data">
+        <div class="container ">
+            <div class="row pb-5">
+                <div class="col-md-12 p-1 mb-2 text-white"
+                    style="vertical-align: center;background-image: linear-gradient(25deg,#6844C8 15%,rgb(167, 42, 217) 71%,rgb(125, 4, 212) 71%,rgb(248, 112, 234) 74%,rgb(239, 164, 246) 74%,white 95%);">
+                    <h4 style="margin-left: 5px;">Add New Post</h4>
+                </div>
+                <div class="col-md-4 mt-1 mb-1">
+                    <label class="mt-1 mb-1">Choose Image / Video</label> <span class="text-danger">*</span>
+                    <input type="file" name="img_video" class="form-control">
+                </div>
+                <div class="col-md-4 mt-1 mb-1">
+                    <label class="mt-1 mb-1">Enter Heading</label> <span class="text-danger">*</span>
+                    <input type="text" name="heading" class="form-control">
+                </div>
+                <div class="col-md-4 mt-1 mb-1">
+                    <label class="mt-1 mb-1">Enter Details</label> <span class="text-danger">*</span>
+                    <textarea name="details" class="form-control"></textarea>
+                </div>
+                <div class="col-md-4 mt-1 mb-1">
+                    <label class="mt-1 mb-1">Select Category</label> <span class="text-danger">*</span>
+                    <select class="form-control" name="category">
+                        <option selected disabled>Select</option>
+                        <option value="Trending">Trending</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Health">Health</option>
+                        <option value="Agreeculter">Agreeculter</option>
+                        <option value="Technology">Technology</option>
+                        <option value="Sports">Sports</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Lifestyle">Lifestyle</option>
+                        <option value="ART&Culter">ART&Culter</option>
+                        <option value="Travel&Turism">Travel&Turism</option>
+                    </select>
+                </div>
+                <div class="col-md-4 mt-1 mb-1">
+                    <label class="mt-1 mb-1">Social Link</label> <span class="text-danger">*</span>
+                    <input type="url" name="social_link" class="form-control">
+                </div>
+                <div class="col-md-12 mt-3 text-center">
+                    <input type="hidden" name="status" value="Pending">
+                    <button class="btn " style="background-color: #6844C8;color: white;">Add News</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <%-include('footer.ejs')%>

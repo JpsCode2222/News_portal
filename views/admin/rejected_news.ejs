@@ -1,0 +1,181 @@
+<%-include('nav.ejs')%>
+    <div class="container ">
+        <div class="row pb-5">
+            <div class="col-md-12 p-1 mb-2 text-white"
+                style="vertical-align: cNews;background-image: linear-gradient(	25deg,#6844C8 15%,rgb(167, 42, 217) 71%,rgb(125, 4, 212) 71%,rgb(248, 112, 234) 74%,rgb(239, 164, 246) 74%,white 95%);">
+                <h4 style="margin-left: 5px;">Rejected News</h4>
+            </div>
+            <% for(var i=0;i<news.length;i++){%>
+                <div class="col-xl-3 col-lg-4   p-3 mt-3">
+                    <% var str=news[i].img_video; const length=str.length; if(str.slice(length - 3)==='mp4' ){%>
+                        <video controls src="/uploads/<%=news[i].img_video%>" style="height: 150px;"
+                            class="w-100"></video>
+                        <% }else if(str.slice(length - 3)==='mp3' ){ %>
+                            <audio controls src="/uploads/<%=news[i].img_video%>" style="height: 150px;"
+                                class="w-100"></audio>
+                            <%}else{%>
+                                <img src="/uploads/<%=news[i].img_video%>" style="height: 150px;" class="w-100" alt="">
+                                <%}%>
+                                    <div>
+                                        <h6>
+                                            <%=news[i].heading%>
+                                        </h6>
+                                        <span style="font-size: 12px;">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M17 3v-2c0-.552.447-1 1-1s1 .448 1 1v2c0 .552-.447 1-1 1s-1-.448-1-1zm-12 1c.553 0 1-.448 1-1v-2c0-.552-.447-1-1-1-.553 0-1 .448-1 1v2c0 .552.447 1 1 1zm13 13v-3h-1v4h3v-1h-2zm-5 .5c0 2.481 2.019 4.5 4.5 4.5s4.5-2.019 4.5-4.5-2.019-4.5-4.5-4.5-4.5 2.019-4.5 4.5zm11 0c0 3.59-2.91 6.5-6.5 6.5s-6.5-2.91-6.5-6.5 2.91-6.5 6.5-6.5 6.5 2.91 6.5 6.5zm-14.237 3.5h-7.763v-13h19v1.763c.727.33 1.399.757 2 1.268v-9.031h-3v1c0 1.316-1.278 2.339-2.658 1.894-.831-.268-1.342-1.111-1.342-1.984v-.91h-9v1c0 1.316-1.278 2.339-2.658 1.894-.831-.268-1.342-1.111-1.342-1.984v-.91h-3v21h11.031c-.511-.601-.938-1.273-1.268-2z" />
+                                            </svg>
+                                            <%=news[i].date%> &nbsp;&nbsp;
+                                                <svg width="20" height="20" viewBox="0 0 24 24"
+                                                    xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
+                                                    clip-rule="evenodd">
+                                                    <path
+                                                        d="M12 0c6.623 0 12 5.377 12 12s-5.377 12-12 12-12-5.377-12-12 5.377-12 12-12zm0 1c6.071 0 11 4.929 11 11s-4.929 11-11 11-11-4.929-11-11 4.929-11 11-11zm0 11h6v1h-7v-9h1v8z" />
+                                                </svg>
+                                                <%=news[i].time%>
+                                        </span>
+                                    </div>
+                                    <div class="mt-2" style="display: flex;justify-content: center;">
+                                        <a href="/admin/edit_news/<%=news[i].id%>"><button class="btn text-white"
+                                                style="background-color: #6844C8;">Edit</button></a>
+
+
+                                        <!-- Button trigger modal -->
+
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal<%=news[i].id%>"
+                                            class="btn btn-info text-white"
+                                            style="outline: 0;border: 0;margin-left: 10px;margin-right: 10px;">View</a>
+
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="exampleModal<%=news[i].id%>" tabindex="-1"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg ">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">
+                                                            <%=news[i].heading%>
+                                                        </h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="container">
+                                                            <div class="row">
+                                                                <div class="col-md-6 mt-1 mb-1">
+                                                                    <label class="mt-1 mb-1">News Image /
+                                                                        Video</label>
+                                                                    <% var str=news[i].img_video; const
+                                                                        extention=str.length; if(str.slice(extention -
+                                                                        3)==='mp4' ){%>
+                                                                        <video controls
+                                                                            src="/uploads/<%=news[i].img_video%>"
+                                                                            style="height: 150px;"
+                                                                            class="w-100"></video>
+                                                                        <% }else if(str.slice(extention - 3)==='mp3' ){
+                                                                            %>
+                                                                            <audio controls
+                                                                                src="/uploads/<%=news[i].img_video%>"
+                                                                                style="height: 150px;"
+                                                                                class="w-100"></audio>
+                                                                            <%}else{%>
+                                                                                <img src="/uploads/<%=news[i].img_video%>"
+                                                                                    style="height: 150px;" class="w-100"
+                                                                                    alt="">
+                                                                                <%}%>
+                                                                </div>
+                                                                <div class="col-md-6 mt-1 mb-1">
+                                                                    <label class="mt-1 mb-1">News Heading</label>
+                                                                    <input type="text" name="heading"
+                                                                        value="<%=news[i].heading%>"
+                                                                        class="form-control">
+                                                                </div>
+                                                                <div class="col-md-6 mt-1 mb-1">
+                                                                    <label class="mt-1 mb-1">News Details</label>
+                                                                    <textarea name="details"
+                                                                        class="form-control"><%=news[i].details%></textarea>
+                                                                </div>
+                                                                <div class="col-md-6 mt-1 mb-1">
+                                                                    <label class="mt-1 mb-1">News Category</label>
+                                                                    <select class="form-control" name="category">
+                                                                        <option disabled>Select</option>
+                                                                        <option <%=(news[i].category=='Trending'
+                                                                            )?'selected':''%> value="Trending">Trending
+                                                                        </option>
+                                                                        <option <%=(news[i].category=='Finance'
+                                                                            )?'selected':''%> value="Finance">Finance
+                                                                        </option>
+                                                                        <option <%=(news[i].category=='Agreeculter'
+                                                                            )?'selected':''%>
+                                                                            value="Agreeculter">Agreeculter</option>
+                                                                        <option <%=(news[i].category=='Technology'
+                                                                            )?'selected':''%>
+                                                                            value="Technology">Technology</option>
+                                                                        <option <%=(news[i].category=='Sports'
+                                                                            )?'selected':''%> value="Sports">Sports
+                                                                        </option>
+                                                                        <option <%=(news[i].category=='Newstainment'
+                                                                            )?'selected':''%>
+                                                                            value="Newstainment">Newstainment</option>
+                                                                        <option <%=(news[i].category=='Lifestyle'
+                                                                            )?'selected':''%>
+                                                                            value="Lifestyle">Lifestyle</option>
+                                                                        <option <%=(news[i].category=='ART&Culture'
+                                                                            )?'selected':''%>
+                                                                            value="ART&Culture">ART&Culture</option>
+                                                                        <option <%=(news[i].category=='Travel&Turism'
+                                                                            )?'selected':''%>
+                                                                            value="Travel&Turism">Travel&Turism</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-md-6 mt-1 mb-1">
+                                                                    <label class="mt-1 mb-1">Reporter Name</label>
+                                                                    <input type="text" name="reporter"
+                                                                        value="<%=news[i].reporter%>"
+                                                                        class="form-control">
+                                                                </div>
+                                                                <div class="col-md-6 mt-1 mb-1">
+                                                                    <label class="mt-1 mb-1">Social Link</label>
+                                                                    <input type="url" name="social_link"
+                                                                        value="<%=news[i].social_link%>"
+                                                                        class="form-control">
+                                                                </div>
+                                                                <div class="col-md-6 mt-1 mb-1">
+                                                                    News Status
+                                                                    <input type="text" name="status"
+                                                                        placeholder="Approved"
+                                                                        value="<%=news[i].status%>"
+                                                                        class="form-control">
+                                                                </div>
+                                                                <div class="col-md-3 mt-1 mb-1">
+                                                                    Time
+                                                                    <input type="text" name="time"
+                                                                        placeholder="01:42:3 AM"
+                                                                        value="<%=news[i].time%>" class="form-control">
+                                                                </div>
+                                                                <div class="col-md-3 mt-1 mb-1">
+                                                                    Date
+                                                                    <input type="text" name="date"
+                                                                        placeholder="27 March 2024"
+                                                                        value="<%=news[i].date%>" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-danger text-white"
+                                                            data-bs-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <a href="/admin/delete_news/<%=news[i].id%>"><button
+                                                class="btn btn-danger text-white">Delete</button></a>
+                                    </div>
+                </div>
+                <%}%>
+        </div>
+    </div>
+    <%-include('footer.ejs')%>
